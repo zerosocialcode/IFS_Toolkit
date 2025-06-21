@@ -1,0 +1,20 @@
+# --- PYTHON MODULES ---
+instagrapi
+cryptography
+# (Optional: for colored output, if you want advanced color handling)
+colorama
+
+# --- SYSTEM PACKAGES (for banner customization, not installable via pip) ---
+# These are documented for completeness, not for pip. 
+# Install them via setup_linux.sh or setup_termux.sh as appropriate:
+# - figlet
+# - toilet
+# - boxes
+# - cowsay
+# - ruby
+# - lolcat (install via 'gem install lolcat')
+
+# --- For Termux users, pip install may be just 'pip' instead of 'pip3' ---
+
+# Note: All system utilities (figlet, toilet, boxes, cowsay, ruby, gem, lolcat) 
+# are handled in the provided setup scripts and are NOT pip modules.

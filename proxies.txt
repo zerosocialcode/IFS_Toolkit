@@ -1,0 +1,12 @@
+http://aupfnwpy:84xf9hiviwfy@198.23.239.134:6540
+http://aupfnwpy:84xf9hiviwfy@207.244.217.165:6712
+http://aupfnwpy:84xf9hiviwfy@107.172.163.27:6543
+http://aupfnwpy:84xf9hiviwfy@23.94.138.75:6349
+http://aupfnwpy:84xf9hiviwfy@216.10.27.159:6837
+http://aupfnwpy:84xf9hiviwfy@136.0.207.84:6661
+http://aupfnwpy:84xf9hiviwfy@64.64.118.149:6732
+http://aupfnwpy:84xf9hiviwfy@142.147.128.93:6593
+http://aupfnwpy:84xf9hiviwfy@104.239.105.125:6655
+http://aupfnwpy:84xf9hiviwfy@173.0.9.70:5653
+
+//keep your proxies like these and run the proxy_validator script.
