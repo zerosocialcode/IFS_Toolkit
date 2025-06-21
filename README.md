@@ -2,8 +2,8 @@
 
 A powerful, professional, and user-friendly Instagram authentication penetration toolkit.
 
-**Developer:** [zerosocialcode](https://github.com/falconthehunter)  
-**Repository:** [IFS-InstaForce-Suite](https://github.com/falconthehunter/IFS-InstaForce-Suite)
+**Developer:** [zerosocialcode](https://github.com/zerosocialcode)  
+**Repository:** [IFS-InstaForce-Suite](https://github.com/zerosocialcode/IFS_Toolkit)
 
 ---
 
@@ -84,8 +84,8 @@ A powerful, professional, and user-friendly Instagram authentication penetration
 ### 1. Clone the Repository
 
 ```sh
-git clone https://github.com/falconthehunter/IFS-InstaForce-Suite.git
-cd IFS-InstaForce-Suite
+git clone https://github.com/zerosocialcode/IFS_Toolkit.git
+cd IFS-Toolkit
 ```
 
 ### 2. Install Dependencies
@@ -180,7 +180,7 @@ pip3 install instagrapi cryptography colorama
 
 ## Credits
 
-- **Developer:** [zerosocialcode](https://github.com/falconthehunter)
+- **Developer:** [zerosocialcode](https://github.com/zerosocialcode)
 - **instagrapi:** Instagram private API library by [adw0rd](https://github.com/adw0rd/instagrapi)
 
 ---
