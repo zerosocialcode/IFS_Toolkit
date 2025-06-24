@@ -35,14 +35,18 @@ GREEN = Fore.GREEN + Style.BRIGHT
 RED = Fore.RED + Style.BRIGHT
 RESET = Style.RESET_ALL
 
-def print_header():
-    print(f"""{CYAN}
-â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-â•‘           Proxy Validator for IFS           â•‘
-â•‘   Developer: zerosocialcode                 â•‘
-â•‘   GitHub: https://github.com/falconthehunterâ•‘
-â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-{RESET}""")
+def print_greeting():
+    print(f"{CYAN}╔════════════════════════════════════════════════════════════════════╗{RESET}")
+    print(f"{CYAN}║  Proxy Validator for IFS-InstaForce-Suite                          ║{RESET}")
+    print(f"{CYAN}║  Author : zerosocialcode                                           ║{RESET}")
+    print(f"{CYAN}║  GitHub : https://github.com/falconthehunter                       ║{RESET}")
+    print(f"{CYAN}╚════════════════════════════════════════════════════════════════════╝{RESET}")
+    print()
+    print(f"{CYAN}Checks proxies for Instagram login accessibility.{RESET}")
+    print()
+    print(f"{CYAN}Usage:{RESET} python3 proxy_validator.py proxies.txt")
+    print(f"{CYAN}Format:{RESET} http[s]://ip:port  or  socks5://user:pass@ip:port")
+    print()
 
 def load_proxies(filename):
     try:
@@ -66,7 +70,8 @@ class Spinner:
             print(f"\r{CYAN}{self.message} {spin_char}{RESET}", end='', flush=True)
             self.idx += 1
             time.sleep(0.13)
-        print("\r" + " " * (len(self.message) + 4) + "\r", end='', flush=True)
+        # Clear spinner line
+        print("\r" + " " * (len(self.message) + 8) + "\r", end='', flush=True)
 
     def start(self):
         self.thread.start()
@@ -86,35 +91,49 @@ def check_proxy(proxy):
     return False
 
 def main():
-    print_header()
+    print_greeting()
     if len(sys.argv) != 2:
-        print(f"{CYAN}Usage:{RESET} python3 proxy_validator.py proxies.txt")
+        print(f"{CYAN}Usage:{RESET} python3 proxy_validator.py proxies.txt\n")
         sys.exit(1)
     proxy_file = sys.argv[1]
     proxies = load_proxies(proxy_file)
     if not proxies:
         print(f"{RED}[!] No proxies found in {proxy_file}{RESET}")
         sys.exit(1)
+
     print(f"{CYAN}Loaded {len(proxies)} proxies. Testing against:{RESET} {DEST_URL}\n")
 
     valid, invalid = [], []
 
     try:
         for idx, proxy in enumerate(proxies, 1):
-            msg = f"Checking if proxy is valid ({idx}/{len(proxies)})"
+            msg = f"Checking proxy ({idx}/{len(proxies)})"
             spinner = Spinner(msg)
             spinner.start()
             is_valid = check_proxy(proxy)
             spinner.stop()
             if is_valid:
-                print(f"{GREEN}[VALID]{RESET} {proxy}")
+                print(f"{GREEN}[VALID]   {proxy}{RESET}")
                 valid.append(proxy)
             else:
-                print(f"{RED}[INVALID]{RESET} {proxy}")
+                print(f"{RED}[INVALID] {proxy}{RESET}")
                 invalid.append(proxy)
+            # Extra line for readability every 3 results
+            if idx % 3 == 0:
+                print()
     except KeyboardInterrupt:
         print(f"\n{CYAN}Gracefully exiting...{RESET}")
         pass
+
+    print()
+    print(f"{GREEN}Valid proxies:   {len(valid)}{RESET}")
+    print(f"{RED}Invalid proxies: {len(invalid)}{RESET}")
+    print()
+    print(f"{CYAN}Saved valid proxies to:   valid_proxies.txt, usetheseproxy.txt{RESET}")
+    print(f"{CYAN}Saved invalid proxies to: invalid_proxies.txt{RESET}")
+    print()
+    print(f"{CYAN}Thank you for using Proxy Validator!{RESET}")
+    print()
 
     # Save valid proxies to three files: valid_proxies.txt, usetheseproxy.txt, and invalid_proxies.txt
     with open("valid_proxies.txt", "w", encoding="utf-8") as f:
@@ -126,10 +145,6 @@ def main():
     with open("invalid_proxies.txt", "w", encoding="utf-8") as f:
         for p in invalid:
             f.write(p + "\n")
-
-    print(f"\n{CYAN}Finished!{RESET} {GREEN}{len(valid)} valid{RESET}, {RED}{len(invalid)} invalid{RESET} proxies.")
-    print(f"{CYAN}Saved valid proxies to valid_proxies.txt and usetheseproxy.txt")
-    print(f"Saved invalid proxies to invalid_proxies.txt{RESET}")
 
 if __name__ == "__main__":
     main()
