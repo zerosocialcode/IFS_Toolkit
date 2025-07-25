@@ -2,11 +2,6 @@
 
 A powerful, professional, and user-friendly Instagram authentication penetration toolkit.
 
-**Developer:** [zerosocialcode](https://github.com/zerosocialcode)  
-**Repository:** [IFS-InstaForce-Suite](https://github.com/zerosocialcode/IFS_Toolkit)
-
----
-
 ## Table of Contents
 
 - [Features](#features)
@@ -15,7 +10,6 @@ A powerful, professional, and user-friendly Instagram authentication penetration
 - [Installation](#installation)
 - [Proxy Validation](#proxy-validation)
 - [Usage](#usage)
-- [Banner Customization](#banner-customization)
 - [Session & Security](#session--security)
 - [Legal & Disclaimer](#legal--disclaimer)
 
@@ -31,8 +25,6 @@ A powerful, professional, and user-friendly Instagram authentication penetration
   *Automatically saves, loads, and encrypts session data for each username, minimizing lockouts and relogins.*
 - **Full Proxy Support & Validation**  
   *Supports HTTP, HTTPS, SOCKS5 proxies; includes a dedicated proxy validator to filter working proxies before attacks.*
-- **Banner Customization**  
-  *Prints ASCII or Unicode banners from `banner.txt` exactly as pasted, with no formatting issues.*
 - **Failure Logging & Reporting**  
   *Logs all failed attempts (password masked) and technical logs; session summary at the end.*
 - **Cross-Terminal Compatibility**  
@@ -41,28 +33,6 @@ A powerful, professional, and user-friendly Instagram authentication penetration
   *Detects and removes proxies that get rate-limited or banned during attacks.*
 - **Professional, Colorized Terminal Output**  
   *Easy-to-read, color-coded console feedback for all status messages.*
-
----
-
-## How It Works
-
-1. **Banner & Legal Warning**:  
-   Prints your custom banner (`banner.txt`) and a legal warning.
-2. **User Input**:  
-   Prompts for Instagram username, password list, and (optionally) a validated proxy list.
-3. **Session Handling**:  
-   Loads session if available and encrypted, or creates new.
-4. **Attack Execution**:  
-   - If proxies are supplied: runs multiple parallel login attempts, each using a different proxy, with a live spinner showing progress.
-   - If no proxies: runs login attempts serially.
-   - Each password attempt randomly delays (configurable) to avoid rate-limiting and detection.
-5. **Result Logging**:  
-   - Successful credentials saved encrypted for future use.
-   - Failed attempts are masked and logged.
-   - Banned/rate-limited proxies are detected and not reused.
-   - At end, prints a colorized session summary.
-6. **No OTP/2FA Handling**:  
-   If Instagram requests OTP or 2FA, the script logs and skips the attempt (no prompt for code).
 
 ---
 
@@ -130,8 +100,7 @@ pip3 install instagrapi cryptography colorama
 
 ## Usage
 
-1. **Prepare your files:**
-    - `banner.txt`: Any ASCII/Unicode art or text banner you want.
+1. **Keep you wordlist in a file.
     - `passwords.txt`: One password per line.
     - `usetheseproxy.txt`: Validated proxies from the validator (optional).
 
@@ -153,14 +122,6 @@ pip3 install instagrapi cryptography colorama
 
 ---
 
-## Banner Customization
-
-- Paste any text, ASCII, or Unicode art into `banner.txt`.
-- The script prints it exactly as-is, supporting all formatting and characters.
-- No need for external tools or escaping.
-
----
-
 ## Session & Security
 
 - **Sessions are encrypted** with Fernet/AES and stored in `ifs_sessions/`.
@@ -177,12 +138,4 @@ pip3 install instagrapi cryptography colorama
 > The author assumes no liability for misuse or illegal activity.
 
 ---
-
-## Credits
-
-- **Developer:** [zerosocialcode](https://github.com/zerosocialcode)
-- **instagrapi:** Instagram private API library by [adw0rd](https://github.com/adw0rd/instagrapi)
-
----
-
 **For educational and authorized testing only. Respect privacy and the law.**
