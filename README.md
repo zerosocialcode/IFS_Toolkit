@@ -100,7 +100,7 @@ pip3 install instagrapi cryptography colorama
 
 ## Usage
 
-1. **Keep you wordlist in a file.
+1. **Keep you wordlist in a file.**
     - `passwords.txt`: One password per line.
     - `usetheseproxy.txt`: Validated proxies from the validator (optional).
 
